@@ -318,6 +318,8 @@ polo() {
 - 使用`cat`命令：`cat file1.csv file2.csv > merged.csv`可以将两个 CSV 文件合并成一个。
 ]
 
+= 实例计算
+- 16个问题，其中第一个问题4个实例，一共20个实例
 = 总结
 + Shell
   + 通过编写简单的脚本来自动化日常任务，能够处理文件和目录。
@@ -332,9 +334,9 @@ polo() {
 + 这次比上次要难（很有可能是因为三节课被合成了一节课），基本上最难的应该是后面数据处理的内容，正则化表达式挺复杂，比较生涩
 + vim主要是熟练度的问题，平时多使用就能有所长进，多想想如何简化操作流程
 + shell是一些语法要记住，可以用shell来简化一些流程从而让工作过程变得简单，比如这次的检测多少次运行之后出现漏洞的问题
-+ 在此附上#link("")[GitHub链接]和commit记录（上次忘了，这次一起附上）如@github
++ 在此附上#link("https://github.com/Danmushu/missingSemester.git")[GitHub链接]和commit记录（上次忘了，这次一起附上）如@github
   #figure(
-  image("./figure/github.png", width: 70%),
+  image("./figure/image.png", width: 70%),
   caption: [
     操作实例
     ],
