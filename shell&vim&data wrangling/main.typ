@@ -131,7 +131,6 @@ polo() {
     操作实例2
     ],
   )<exec2>  
-== 自行发挥
 
 = Vim
 #cprob[
@@ -234,12 +233,9 @@ polo() {
   #figure(
   image("./figure/ctlp.png", width: 70%),
   caption: [
-    操作实例2
+    操作实例
     ],
   )<ctlp>  
-#cprob[如何在 Vim 中打开一个新文件？][
-  可以通过命令模式输入`:e <filename>`打开一个新文件，或者使用`:edit <filename>`
-]
 
 #cprob[如何在 Vim 中保存文件？][
   - 按`:w`保存文件。
@@ -254,12 +250,34 @@ polo() {
 ]
 
 #cprob[如何在 Vim 中搜索和替换文本？][
-  
+  - 按 / 后输入搜索的文本，按 Enter 进行搜索。
+  - 按 :%s/old/new/g 替换文件中所有的 "old" 为 "new"。
+  - 按 :%s/old/new/gc 替换文件中所有的 "old" 为 "new"，并且每次替换前会进行确认。    
+  - 替换之前@vim1
+  - 替换之后@vim2
+]
+  #figure(
+  image("./figure/vim1.png", width: 70%),
+  caption: [
+    操作实例
+    ],
+  )<vim1>  
+
+  #figure(
+  image("./figure/vim2.png", width: 70%),
+  caption: [
+    操作实例
+    ],
+  )<vim2>  
+#cprob[如何在 Vim 中分割窗口？][
+  - 按 :split 或 :sp 垂直分割窗口。
+  - 按 :vsplit 或 :vsp 水平分割窗口。
 ]
 
-#cprob[][
-  
+#cprob[如何在 Vim 中撤销分割的窗口？][
+  - 按 :close 或 :q 关闭当前窗口
 ]
+
 = Data wrangling
 == 课后练习
 #cprob[
@@ -272,3 +290,52 @@ polo() {
     - `grep -E "^([^a]?*a){3}.*$"` 意为：匹配前面是不是a都可以含有a的组三次
     - grep -v 
 ]
+
+== 自行发挥
+#cprob[
+  如何删除文件中的空行？
+][
+  - 使用`sed`命令：`sed '/^$/d' filename > newfile`会删除文件中的所有空行，并将结果输出到 newfile。如果要直接修改原文件，可以使用`sed -i '/^$/d' filename`。
+  - 使用`awk`命令：`awk NF filename > newfile`也会删除空行，并将结果输出到 newfile。
+  - 使用`grep`命令：`grep -v '^$' filename > newfile`删除空行，并将结果输出到 newfile。
+]
+
+#cprob[
+  如何删除文件中的重复行
+][
+  - 使用 uniq 命令：sort filename | uniq > newfile 首先对文件进行排序，然后使用 uniq 删除重复行，结果输出到 newfile。
+]
+
+#cprob[
+  如何统计文件中特定单词的出现次数？
+][
+  - 使用 grep 和 wc 命令：grep -o "word" filename | wc -l 可以统计特定单词出现的次数。
+]
+
+#cprob[
+  如何合并多个 CSV 文件？
+][
+- 使用`cat`命令：`cat file1.csv file2.csv > merged.csv`可以将两个 CSV 文件合并成一个。
+]
+
+= 总结
++ Shell
+  + 通过编写简单的脚本来自动化日常任务，能够处理文件和目录。
+  + 学会了使用 ls 命令的高级选项来显示文件的详细信息
+  + 使用 find 和 xargs 组合来查找和压缩特定类型的文件。
++ Vim
+  + 学了如何自定义 Vim 的配置文件 ~/.vimrc
+  + 使用 Vim 插件如 ctrlp.vim 来增强编辑体验
+  + 使用 Vim 的快捷键进行文本编辑
++ 数据整理
+  + 使用sed、awk、grep 和 uniq 来处理文本数据，包括删除空行、去除重复行、统计单词出现次数等
++ 这次比上次要难（很有可能是因为三节课被合成了一节课），基本上最难的应该是后面数据处理的内容，正则化表达式挺复杂，比较生涩
++ vim主要是熟练度的问题，平时多使用就能有所长进，多想想如何简化操作流程
++ shell是一些语法要记住，可以用shell来简化一些流程从而让工作过程变得简单，比如这次的检测多少次运行之后出现漏洞的问题
++ 在此附上#link("")[GitHub链接]和commit记录（上次忘了，这次一起附上）如@github
+  #figure(
+  image("./figure/github.png", width: 70%),
+  caption: [
+    操作实例
+    ],
+  )<github>  
